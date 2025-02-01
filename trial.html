@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2em 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #ddd;
+            padding: 10px 0;
+        }
+
+        nav button {
+            background: #eee;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        nav button:hover {
+            background: #ccc;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .content-section {
+            display: none;
+            padding: 20px;
+            background: #fff;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Webpage</h1>
+        <p>A simple webpage example</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('about')">About</button>
+        <button onclick="showSection('contact')">Contact</button>
+    </nav>
+
+
+    <main>
+        <section id="home" class="content-section active">
+            <h2>Home</h2>
+            <p>Welcome to my webpage! This is the home section.</p>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About</h2>
+            <p>This is the about section. You can add information about yourself or your webpage here.</p>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact</h2>
+            <p>You can contact me at email@example.com</p>
+        </section>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+        // Set the 'home' section as active by default when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
